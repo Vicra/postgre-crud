@@ -9,7 +9,7 @@ const swaggerDocument = require('./swagger.json');
 var options = {
     customCss: '.swagger-ui .topbar { display: none }'
 };
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 
 // api routes
 const productRoutes = require('./src/routes/productRoutes')

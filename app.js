@@ -1,7 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 var app = express()
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.json())
 
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('./swagger.json');
@@ -15,7 +16,6 @@ const productRoutes = require('./src/routes/productRoutes')
 app.use('/api/product', productRoutes)
 
 // application routes
-app.set('port', process.env.PORT || 4000)
-app.listen(4000, function () {
+app.listen(process.env.PORT || 4000, function () {
     console.log('Server is running.. http://localhost:4000/api-docs')
 })

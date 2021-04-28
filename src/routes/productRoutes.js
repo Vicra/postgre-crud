@@ -9,4 +9,10 @@ router.get('/', async (_, res)=>{
     res.send(response)
 })
 
+router.post('/', async (req, res)=>{
+    let response = {}
+    response = await productController.createProduct(req.body)
+    res.status(response.status).send(response)
+})
+
 module.exports = router

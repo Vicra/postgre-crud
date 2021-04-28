@@ -1,0 +1,62 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Postgre CRUD",
+      "description": "Testing postgre crud",
+      "version": "0.0.1"
+    },
+    "paths": {
+        "/api/product": {
+            "get": {
+                "description": "List all products",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ]
+            },
+            "post": {
+                "description": "post a new product",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "",
+                        "schema": {
+                            "$ref": "#/definitions/Product"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "definitions":{
+        "Product":{
+            "type":"object",
+            "required":[
+                "name"
+            ],
+            "properties":{
+                "name":{
+                    "type":"string"
+                },
+                "description":{
+                    "type":"string"
+                },
+                "price":{
+                    "type":"integer"
+                }
+            }
+        }
+    }
+  }

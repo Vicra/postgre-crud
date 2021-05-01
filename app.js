@@ -9,11 +9,11 @@ const swaggerDocument = require('./swagger.json')
 var options = {
     customCss: '.swagger-ui .topbar { display: none }'
 }
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options))
-
 // api routes
 const productRoutes = require('./src/routes/productRoutes')
 app.use('/api/product', productRoutes)
+
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options))
 
 // application routes
 app.listen(process.env.PORT || 4000, function () {

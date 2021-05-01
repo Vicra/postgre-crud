@@ -24,7 +24,37 @@
                             "type": "integer"
                         }
                     }
-                ]
+                ],
+                "responses": {
+                    "200":{
+                        "description": "una lista de usuarios",
+                        "content": {
+                            "application/json":{
+                                "schema" : {
+                                    "type": "object",
+                                    "properties" : {
+                                        "data": {
+                                            "type" : "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "leche"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "post": {
                 "description": "post a new product",
@@ -37,6 +67,57 @@
                         }
                     }
                 ]
+            },
+            "delete": {
+                "description": "delete a product by id",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ]
+            },
+            "put": {
+                "description": "update a product",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "el usuario actualizado",
+                        "content": {
+                            "application/json":{
+                                "schema" : {
+                                    "type": "object",
+                                    "properties" : {
+                                        "data": {
+                                            "type" : "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "leche"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     },
